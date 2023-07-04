@@ -6,6 +6,7 @@ Esta é uma API simples de gerenciamento de tarefas, construída com o framework
 
 [![Demonstração da API](https://img.youtu.be/69j8mQZTO6E.jpg)](https://youtu.be/69j8mQZTO6E)
 
+
 ## Requisitos
 
 Certifique-se de ter os seguintes requisitos instalados em seu ambiente de desenvolvimento:

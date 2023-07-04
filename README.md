@@ -1,101 +1,65 @@
-# Sistema de Gerenciamento de Tarefas (API)
+# Task Manager API
 
-Este é um sistema de gerenciamento de tarefas desenvolvido utilizando Laravel, que fornece uma API para realizar operações básicas de criação, leitura, atualização e exclusão (CRUD) de tarefas.
+Esta é uma API simples de gerenciamento de tarefas, construída com o framework Laravel.
+
+## Demonstração
+
+[![Demonstração da API](https://img.youtu.be/69j8mQZTO6E.jpg)](https://youtu.be/69j8mQZTO6E)
 
 ## Requisitos
 
-A API é capaz de lidar com as seguintes operações:
+Certifique-se de ter os seguintes requisitos instalados em seu ambiente de desenvolvimento:
 
-- Listar todas as tarefas
-- Obter detalhes de uma tarefa específica
-- Criar uma nova tarefa
-- Atualizar os dados de uma tarefa existente
-- Excluir uma tarefa
+- PHP >= 7.3
+- Composer
+- Banco de dados MySQL
 
-Cada tarefa contém as seguintes informações:
+## Instalação
 
-- Título (obrigatório)
-- Descrição (obrigatório)
-- Status (concluída ou não concluída)
+1. Clone este repositório para o seu ambiente local:
 
-A API segue as práticas recomendadas para design de APIs RESTful e utiliza os métodos HTTP adequados para cada operação. A resposta da API está no formato JSON.
+   ```bash
+   git clone https://github.com/seu-usuario/task-manager-api.git
 
-## Rotas disponíveis
+## Instale as dependências do projeto:
 
-### Listar todas as tarefas
+    cd task-manager-api
+    composer install
 
-- Método: GET
-- URL: /api/tasks
-- Resposta esperada: JSON contendo todas as tarefas registradas no sistema.
+## Configure o arquivo '.env' com as informações do banco de dados:
 
-### Obter detalhes de uma tarefa específica
+    cp .env.example .env
+    php artisan key:generate
 
-- Método: GET
-- URL: /api/tasks/{id}
-- Parâmetros:
-  - {id}: ID da tarefa desejada
-- Resposta esperada: JSON contendo os detalhes da tarefa com o ID especificado.
+Abra o arquivo .env e defina as seguintes variáveis:
 
-### Criar uma nova tarefa
+DB_CONNECTION=mysql</br>
+DB_HOST=127.0.0.1</br>
+DB_PORT=3306</br>
+DB_DATABASE=task_manager</br>
+DB_USERNAME=seu-usuario</br>
+DB_PASSWORD=sua-senha</br>
 
-- Método: POST
-- URL: /api/tasks
-- Parâmetros:
-  - Título (campo obrigatório)
-  - Descrição (campo obrigatório)
-  - Status (campo obrigatório, com opções: "concluída" ou "não concluída")
-- Resposta esperada: JSON contendo os detalhes da nova tarefa criada.
+## Execute as migrações do banco de dados:
 
-### Atualizar os dados de uma tarefa existente
+    php artisan migrate
 
-- Método: PUT
-- URL: /api/tasks/{id}
-- Parâmetros:
-  - {id}: ID da tarefa a ser atualizada
-  - Título
-  - Descrição
-  - Status
-- Resposta esperada: JSON contendo os detalhes da tarefa atualizada.
+## Inicie o servidor de desenvolvimento:
 
-### Excluir uma tarefa
+    php artisan serve
 
-- Método: DELETE
-- URL: /api/tasks/{id}
-- Parâmetros:
-  - {id}: ID da tarefa a ser excluída
-- Resposta esperada: JSON indicando que a tarefa foi excluída com sucesso.
+A API estará disponível em http://localhost:8000.
 
-## Validações
-
-As seguintes validações são aplicadas antes de executar as operações no banco de dados:
-
-- O título e a descrição da tarefa são campos obrigatórios.
-- O status da tarefa deve ser válido e pode ser "concluída" ou "não concluída".
-
-## Testando a API
-
-[![Teste API Task Manager](https://img.youtube.com/vi/a7EMJfvUhP0/0.jpg)](https://youtu.be/a7EMJfvUhP0)
-
-Recomenda-se utilizar uma ferramenta de testes de API, como o Postman ou o Insomnia, para testar a funcionalidade da API.
-
-Certifique-se de ter os endpoints corretos, os parâmetros adequados e verifique as respostas recebidas da API.
-
-## Ambiente de Desenvolvimento
-
-Para configurar o ambiente de desenvolvimento, siga as etapas abaixo:
-
-1. Clone o repositório do projeto.
-2. Instale as dependências do Laravel executando o comando `composer install`.
-3. Crie um arquivo `.env` baseado no arquivo `.env.example` e configure as informações do banco de dados.
-4. Gere uma nova chave do aplicativo executando o comando `php artisan key:generate`.
-5. Execute as migrações do banco de dados e alimente-o com os dados iniciais utilizando o comando `php artisan migrate --seed`.
-6. Inicie o servidor de desenvolvimento com o comando `php artisan serve`.
-7. Agora você pode fazer solicitações para a API usando o URL fornecido pelo servidor de desenvolvimento.
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas ou enviar solicitações pull para melhorar este sistema de gerenciamento de tarefas.
+## Rotas
+GET /api/tasks: Lista todas as tarefas.</br>
+GET /api/tasks/{id}: Obtém os detalhes de uma tarefa específica.</br>
+POST /api/tasks: Cria uma nova tarefa.</br>
+PUT /api/tasks/{id}: Atualiza uma tarefa existente.</br>
+DELETE /api/tasks/{id}: Exclui uma tarefa.</br>
+Certifique-se de usar uma ferramenta adequada, como o Postman, para testar as rotas da API.
 
 ## Licença
+Este projeto está licenciado sob a licença MIT.
 
-Este projeto está licenciado sob a MIT License.
+
+    Lembre-se de personalizar as informações conforme necessário, como o link do repositório, os requisitos do seu ambiente e as instruções de instalação.
